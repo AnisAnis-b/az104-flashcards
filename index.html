@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AZ-104 · Cartes de révision — 168 flashcards gratuites pour l'examen Azure Administrator</title>
+<meta name="description" content="Révise la certification Microsoft AZ-104 (Azure Administrator) avec 168 cartes gratuites en français : 33 pièges d'examen, 8 domaines, progression sauvegardée, installable sur téléphone et utilisable hors ligne.">
+<meta name="theme-color" content="#0e1016">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AZ-104 · Cartes de révision — 168 flashcards gratuites">
+<meta property="og:description" content="33 pièges d'examen, 8 domaines, rappel actif, hors ligne. Open source et gratuit.">
+<meta property="og:url" content="https://anisanis-b.github.io/az104-flashcards/">
+<meta property="og:image" content="https://anisanis-b.github.io/az104-flashcards/assets/screenshot.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0e1016;
+    --bg2:#141824;
+    --panel:#191d2a;
+    --line:#272c3d;
+    --line-2:#232838;
+    --ink:#e8eaf2;
+    --muted:#8b91a6;
+    --muted-2:#5f6577;
+    --accent:#60a5fa;
+    --gov:#a78bfa; --sto:#2dd4bf; --com:#fbbf24; --net:#60a5fa;
+    --mon:#fb7185; --pie:#fb923c; --geo:#e879f9; --tip:#4ade80;
+    --radius:18px;
+    --spectrum:linear-gradient(90deg,var(--gov),var(--sto),var(--com),var(--net),var(--mon),var(--pie),var(--geo),var(--tip));
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(96,165,250,.09), transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, rgba(167,139,250,.07), transparent 60%),
+      var(--bg);
+    color:var(--ink);
+    font-family:"Inter","Segoe UI",system-ui,-apple-system,sans-serif;
+    min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .wrap{max-width:980px;margin:0 auto;padding:0 20px 70px;}
+  a{color:var(--accent);}
+
+  .spectrum{height:3px;background:var(--spectrum);border-radius:99px;}
+
+  /* ---------- Header ---------- */
+  header{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:20px 0 16px;}
+  .wordmark{display:flex;flex-direction:column;gap:2px;}
+  .wordmark .kicker{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted-2);}
+  .wordmark strong{font-family:"Space Grotesk",sans-serif;font-size:19px;font-weight:700;letter-spacing:-.01em;}
+  .wordmark strong b{color:var(--accent);font-weight:700;}
+  .gh{
+    font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);text-decoration:none;
+    border:1px solid var(--line);border-radius:99px;padding:8px 14px;transition:all .18s ease;white-space:nowrap;
+  }
+  .gh:hover{border-color:var(--muted-2);color:var(--ink);}
+
+  /* ---------- Hero ---------- */
+  .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center;padding:52px 0 40px;}
+  h1{
+    font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:42px;line-height:1.08;
+    letter-spacing:-.02em;margin:0 0 16px;text-wrap:balance;
+  }
+  h1 em{font-style:normal;color:var(--accent);}
+  .sub{font-size:17px;line-height:1.65;color:var(--muted);margin:0 0 26px;max-width:46ch;}
+  .sub b{color:var(--ink);font-weight:600;}
+  .cta{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{
+    font-family:"JetBrains Mono",monospace;font-size:14px;font-weight:600;text-decoration:none;
+    border-radius:13px;padding:14px 22px;transition:all .16s ease;display:inline-flex;align-items:center;gap:8px;
+  }
+  .btn.primary{background:var(--accent);color:#0e1016;border:1px solid var(--accent);}
+  .btn.primary:hover{filter:brightness(1.08);transform:translateY(-1px);}
+  .btn.ghost{color:var(--muted);border:1px solid var(--line);background:var(--panel);font-weight:500;}
+  .btn.ghost:hover{border-color:var(--muted-2);color:var(--ink);}
+
+  /* Carte démo (vrai objet de l'app) */
+  .demo{perspective:1600px;}
+  .dcard{position:relative;min-height:300px;cursor:pointer;--dc:var(--pie);}
+  .dcard-inner{position:relative;width:100%;min-height:300px;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.35,.1,.25,1);}
+  .dcard.flipped .dcard-inner{transform:rotateY(180deg);}
+  .dface{
+    position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+    border:1px solid var(--line);border-radius:var(--radius);
+    background:linear-gradient(160deg,var(--panel),var(--bg2));
+    padding:24px 22px;display:flex;flex-direction:column;
+    box-shadow:0 26px 60px -34px rgba(0,0,0,.95), inset 0 1px 0 rgba(255,255,255,.03);
+    overflow:hidden;
+  }
+  .dface::before{content:"";position:absolute;left:0;top:0;height:100%;width:4px;background:var(--dc);}
+  .dface.back{transform:rotateY(180deg);background:linear-gradient(160deg,#181f2e,#111623);}
+  .deyebrow{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--dc);font-weight:600;margin-bottom:auto;}
+  .dlabel{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted-2);margin:14px 0 8px;}
+  .dq{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;line-height:1.35;margin:0;}
+  .da{font-size:15.5px;line-height:1.55;margin:0;color:#eef0f7;}
+  .dhint{margin-top:auto;padding-top:14px;font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--muted-2);}
+
+  /* ---------- Stat strip ---------- */
+  .strip{
+    display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--line);border-radius:var(--radius);
+    background:var(--panel);overflow:hidden;margin:8px 0 0;
+  }
+  .strip .cell{flex:1 1 140px;padding:18px 16px;text-align:center;border-right:1px solid var(--line-2);}
+  .strip .cell:last-child{border-right:0;}
+  .strip .n{font-family:"JetBrains Mono",monospace;font-size:26px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums;}
+  .strip .l{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);margin-top:5px;}
+
+  /* ---------- Sections ---------- */
+  section{padding:46px 0 6px;}
+  .stitle{display:flex;align-items:baseline;gap:14px;margin:0 0 22px;}
+  .stitle h2{font-family:"Space Grotesk",sans-serif;font-size:24px;font-weight:700;letter-spacing:-.01em;margin:0;}
+  .stitle .rule{flex:1;height:2px;background:var(--spectrum);opacity:.35;border-radius:99px;}
+
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .feat{
+    border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);
+    padding:20px 18px;display:flex;flex-direction:column;gap:9px;
+  }
+  .feat .dot{width:9px;height:9px;border-radius:99px;}
+  .feat h3{font-family:"Space Grotesk",sans-serif;font-size:16px;font-weight:600;margin:0;}
+  .feat p{font-size:14px;line-height:1.6;color:var(--muted);margin:0;}
+  .feat p code{font-family:"JetBrains Mono",monospace;font-size:.88em;background:rgba(255,255,255,.06);padding:1px 5px;border-radius:5px;color:#cfe0ff;}
+
+  .chips{display:flex;flex-wrap:wrap;gap:9px;}
+  .chip{
+    font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--muted);
+    background:var(--panel);border:1px solid var(--line);border-radius:99px;padding:9px 14px;
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .chip .dot{width:8px;height:8px;border-radius:99px;}
+  .chip b{color:var(--ink);font-weight:600;}
+
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .how{border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);padding:20px 18px;}
+  .how h3{font-family:"Space Grotesk",sans-serif;font-size:16px;margin:0 0 12px;display:flex;align-items:center;gap:9px;}
+  .how h3 .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(96,165,250,.35);border-radius:99px;padding:3px 9px;}
+  .how ol{margin:0;padding-left:20px;color:var(--muted);font-size:14px;line-height:1.9;}
+  .how ol b{color:var(--ink);font-weight:600;}
+
+  .keys{display:flex;flex-wrap:wrap;gap:10px;font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--muted);}
+  .keys span{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:9px 13px;}
+  kbd{background:var(--line);border:1px solid var(--line-2);border-bottom-width:2px;border-radius:5px;padding:1px 7px;color:var(--ink);font-family:inherit;font-size:11px;}
+
+  .contrib{border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);padding:22px 20px;}
+  .contrib p{color:var(--muted);font-size:14.5px;line-height:1.7;margin:0 0 12px;}
+  .contrib p b{color:var(--ink);}
+  pre{
+    margin:0;background:#0b0d13;border:1px solid var(--line-2);border-radius:12px;padding:14px 16px;
+    font-family:"JetBrains Mono",monospace;font-size:12.5px;line-height:1.7;color:#cfe0ff;overflow-x:auto;
+  }
+  pre .c{color:var(--muted-2);}
+
+  footer{
+    margin-top:52px;padding-top:22px;border-top:1px solid var(--line);
+    font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--muted-2);line-height:2;text-align:center;
+  }
+  footer a{color:var(--muted);}
+
+  /* ---------- Motion ---------- */
+  .reveal{opacity:0;transform:translateY(14px);animation:rise .6s cubic-bezier(.2,.6,.2,1) forwards;}
+  @keyframes rise{to{opacity:1;transform:none;}}
+  .d1{animation-delay:.05s}.d2{animation-delay:.15s}.d3{animation-delay:.25s}.d4{animation-delay:.38s}
+
+  @media (max-width:760px){
+    .hero{grid-template-columns:1fr;gap:30px;padding:34px 0 30px;}
+    h1{font-size:31px;}
+    .grid{grid-template-columns:1fr;}
+    .duo{grid-template-columns:1fr;}
+    .strip .cell{flex:1 1 40%;border-bottom:1px solid var(--line-2);}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .reveal{animation:none;opacity:1;transform:none;}
+    .dcard-inner{transition:none;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="wordmark">
+      <span class="kicker">Microsoft Azure Administrator</span>
+      <strong>AZ&#8209;104 <b>· Cartes de révision</b></strong>
+    </div>
+    <a class="gh" href="https://github.com/AnisAnis-b/az104-flashcards" rel="noopener">GitHub ↗</a>
+  </header>
+  <div class="spectrum"></div>
+
+  <div class="hero">
+    <div>
+      <h1 class="reveal d1">Révise l'AZ&#8209;104 avec des cartes qui vont <em>à l'essentiel</em>.</h1>
+      <p class="sub reveal d2">168 flashcards en français, dont <b>33 pièges d'examen</b> — les détails que les questions adorent te faire rater. Rappel actif, progression sauvegardée, gratuit et <b>utilisable hors ligne</b> sur ton téléphone.</p>
+      <div class="cta reveal d3">
+        <a class="btn primary" href="revision.html">Commencer à réviser →</a>
+        <a class="btn ghost" href="https://github.com/AnisAnis-b/az104-flashcards" rel="noopener">★ Star sur GitHub</a>
+      </div>
+    </div>
+    <div class="demo reveal d4">
+      <div class="dcard" id="dcard" role="button" tabindex="0" aria-label="Carte d'exemple, cliquer pour retourner">
+        <div class="dcard-inner">
+          <div class="dface front">
+            <span class="deyebrow">Pièges d'examen · exemple</span>
+            <p class="dlabel">Question</p>
+            <p class="dq">Piège 5 · Règle NSG pour du trafic <b>DNS</b> : quel protocole choisir ?</p>
+            <div class="dhint">tape la carte pour voir la réponse</div>
+          </div>
+          <div class="dface back">
+            <span class="deyebrow">Pièges d'examen · exemple</span>
+            <p class="dlabel">Réponse</p>
+            <p class="da">DNS utilise UDP <b>et</b> TCP (port 53) → mettre <b>Any</b> dans la règle.</p>
+            <div class="dhint">168 cartes comme celle-ci t'attendent</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="strip">
+    <div class="cell"><div class="n">168</div><div class="l">cartes</div></div>
+    <div class="cell"><div class="n">8</div><div class="l">domaines</div></div>
+    <div class="cell"><div class="n">33</div><div class="l">pièges d'examen</div></div>
+    <div class="cell"><div class="n">0 €</div><div class="l">gratuit · open source</div></div>
+  </div>
+
+  <section id="fonctionnalites">
+    <div class="stitle"><h2>Pensé pour mémoriser, pas pour relire</h2><div class="rule"></div></div>
+    <div class="grid">
+      <div class="feat"><span class="dot" style="background:var(--pie)"></span><h3>Pièges d'examen réels</h3><p>Les limites, noms de subnets imposés et exclusivités que les questions pièges ciblent : Bastion /26, GatewaySubnet, auto-enregistrement DNS, swap de slots…</p></div>
+      <div class="feat"><span class="dot" style="background:var(--net)"></span><h3>Rappel actif</h3><p>Chaque carte est une question à laquelle tu réponds avant de la retourner. C'est la méthode la plus efficace pour ancrer une notion, loin devant la relecture.</p></div>
+      <div class="feat"><span class="dot" style="background:var(--tip)"></span><h3>Progression sauvegardée</h3><p>Marque chaque carte « je sais » ou « à revoir » : tout est conservé sur ton appareil, et le mode <code>★ À revoir</code> te fait bosser uniquement tes lacunes.</p></div>
+      <div class="feat"><span class="dot" style="background:var(--geo)"></span><h3>Installable sur téléphone</h3><p>PWA : ajoute-la à ton écran d'accueil et révise dans une vraie app, plein écran, même sans connexion (métro, avion, file d'attente).</p></div>
+      <div class="feat"><span class="dot" style="background:var(--gov)"></span><h3>Filtres par domaine</h3><p>Gouvernance, Stockage, Compute, Réseau, Monitoring, Pièges, Portée, Astuces : révise un domaine à la fois ou mélange tout.</p></div>
+      <div class="feat"><span class="dot" style="background:var(--com)"></span><h3>Open source</h3><p>Un seul fichier HTML, zéro dépendance, licence MIT. Une erreur ? Une carte à ajouter ? Les issues et pull requests sont bienvenues.</p></div>
+    </div>
+  </section>
+
+  <section id="contenu">
+    <div class="stitle"><h2>168 cartes, 8 domaines</h2><div class="rule"></div></div>
+    <div class="chips">
+      <span class="chip"><span class="dot" style="background:var(--gov)"></span>Gouvernance <b>32</b></span>
+      <span class="chip"><span class="dot" style="background:var(--sto)"></span>Stockage <b>21</b></span>
+      <span class="chip"><span class="dot" style="background:var(--com)"></span>Compute <b>26</b></span>
+      <span class="chip"><span class="dot" style="background:var(--net)"></span>Réseau <b>25</b></span>
+      <span class="chip"><span class="dot" style="background:var(--mon)"></span>Monitoring <b>16</b></span>
+      <span class="chip"><span class="dot" style="background:var(--pie)"></span>Pièges d'examen <b>32</b></span>
+      <span class="chip"><span class="dot" style="background:var(--geo)"></span>Global vs Régional <b>3</b></span>
+      <span class="chip"><span class="dot" style="background:var(--tip)"></span>Astuces réflexes <b>13</b></span>
+    </div>
+  </section>
+
+  <section id="installer">
+    <div class="stitle"><h2>Installer comme une app</h2><div class="rule"></div></div>
+    <div class="duo">
+      <div class="how">
+        <h3>Android <span class="tag">Chrome</span></h3>
+        <ol>
+          <li>Ouvre <b>la page de révision</b> dans Chrome</li>
+          <li>Menu <b>⋮</b> → <b>« Ajouter à l'écran d'accueil »</b> (ou « Installer l'application »)</li>
+          <li>Lance-la depuis son icône : plein écran, hors ligne inclus</li>
+        </ol>
+      </div>
+      <div class="how">
+        <h3>iPhone / iPad <span class="tag">Safari</span></h3>
+        <ol>
+          <li>Ouvre <b>la page de révision</b> dans Safari</li>
+          <li>Bouton <b>Partager</b> → <b>« Sur l'écran d'accueil »</b></li>
+          <li>Révise depuis l'icône, comme une app native</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="raccourcis">
+    <div class="stitle"><h2>Au clavier sur ordinateur</h2><div class="rule"></div></div>
+    <div class="keys">
+      <span><kbd>Espace</kbd> retourner la carte</span>
+      <span><kbd>←</kbd> <kbd>→</kbd> naviguer</span>
+      <span><kbd>J</kbd> je sais</span>
+      <span><kbd>R</kbd> à revoir</span>
+      <span><kbd>S</kbd> mélanger</span>
+    </div>
+  </section>
+
+  <section id="contribuer">
+    <div class="stitle"><h2>Contribuer</h2><div class="rule"></div></div>
+    <div class="contrib">
+      <p>Ce projet est né pendant ma propre préparation de l'AZ&#8209;104 : chaque piège vient d'une erreur faite sur des tests blancs. Si une carte te semble fausse ou s'il manque un piège qui t'a eu, <b>ouvre une issue ou une pull request</b> — une carte, c'est trois champs dans <code style="font-family:'JetBrains Mono',monospace;font-size:.9em">revision.html</code> :</p>
+      <pre>{d:"pie", <span class="c">// domaine : gov · sto · com · net · mon · pie · geo · tip</span>
+ q:"Piège 34 · La question, côté recto ?",
+ a:"La réponse, côté verso."},</pre>
+    </div>
+  </section>
+
+  <footer>
+    <div class="spectrum" style="margin-bottom:18px"></div>
+    Fait par <a href="https://github.com/AnisAnis-b" rel="noopener">@AnisAnis-b</a> pendant sa préparation de l'AZ&#8209;104 · Licence <a href="https://github.com/AnisAnis-b/az104-flashcards/blob/main/LICENSE" rel="noopener">MIT</a><br>
+    Projet indépendant, non affilié à Microsoft. AZ&#8209;104, Azure et Microsoft sont des marques de Microsoft Corporation.
+  </footer>
+</div>
+
+<script>
+const dcard = document.getElementById("dcard");
+const flip = () => dcard.classList.toggle("flipped");
+dcard.addEventListener("click", flip);
+dcard.addEventListener("keydown", e => { if(e.key==="Enter"||e.key===" "){ e.preventDefault(); flip(); } });
+if(!matchMedia("(prefers-reduced-motion: reduce)").matches){
+  setTimeout(flip, 1700);
+  setTimeout(flip, 3600);
+}
+if("serviceWorker" in navigator){ addEventListener("load", ()=>navigator.serviceWorker.register("sw.js")); }
+</script>
+</body>
+</html>
