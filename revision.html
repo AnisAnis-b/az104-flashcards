@@ -7,14 +7,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<meta name="description" content="168 cartes de révision gratuites pour la certification Microsoft AZ-104 (Azure Administrator) : pièges d'examen, rappel actif, progression sauvegardée, utilisable hors ligne.">
+<meta name="description" content="182 cartes de révision gratuites pour la certification Microsoft AZ-104 (Azure Administrator) : pièges d'examen, rappel actif, progression sauvegardée, utilisable hors ligne.">
 <meta name="theme-color" content="#0e1016">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="AZ-104 · Cartes de révision">
-<meta property="og:description" content="168 cartes pour réviser l'AZ-104 : pièges d'examen, 8 domaines, astuces réflexes. Gratuit, open source, hors ligne.">
+<meta property="og:description" content="182 cartes pour réviser l'AZ-104 : pièges d'examen, 8 domaines, astuces réflexes. Gratuit, open source, hors ligne.">
 <meta property="og:url" content="https://anisanis-b.github.io/az104-flashcards/revision.html">
 <meta property="og:image" content="https://anisanis-b.github.io/az104-flashcards/assets/screenshot.png">
 <style>
@@ -234,7 +234,7 @@
   </div>
 
   <footer id="foot">
-    168 cartes · pièges d'examen &amp; astuces inclus<br>
+    182 cartes · pièges d'examen &amp; astuces inclus<br>
     Progression sauvegardée sur cet appareil.<br>
     <a href="index.html" style="color:var(--muted-2)">À propos, code source &amp; contributions</a>
   </footer>
@@ -281,6 +281,7 @@ const CARDS = [
   {d:"gov", q:"Policy <b>definition</b> vs <b>initiative</b> ?", a:"Definition = une règle. Initiative (policy set) = groupe de définitions."},
   {d:"gov", q:"Les effets d'Azure Policy ?", a:"Deny, Audit, Append, Modify, DeployIfNotExists (DINE), AuditIfNotExists, Disabled."},
   {d:"gov", q:"À quoi sert une <b>remediation task</b> ?", a:"Corriger les ressources existantes. DINE / Modify nécessitent une identité managée."},
+  {d:"gov", q:"Managed identity <b>system-assigned</b> vs <b>user-assigned</b> ?", a:"System-assigned : créée avec la ressource, meurt avec elle, non partageable. User-assigned : ressource à part entière, attachable à plusieurs services, survit à leur suppression."},
   {d:"gov", q:"Policy vs RBAC ?", a:"RBAC = qui peut faire quoi. Policy = ce que les ressources ont le droit d'être / avoir."},
   {d:"gov", q:"Rôle des <b>Management Groups</b> ?", a:"Hiérarchie au-dessus des subscriptions ; héritage de Policy et RBAC."},
   {d:"gov", q:"Ajouter département / coût / reporting à une ressource ?", a:"Tags (Tag Contributor pour gérer uniquement les tags)."},
@@ -290,8 +291,8 @@ const CARDS = [
 
   // ===== D2 Stockage =====
   {d:"sto", q:"À quoi sert un <b>SAS</b> ?", a:"Donner un accès temporaire et limité au stockage."},
-  {d:"sto", q:"Les 3 types de SAS ?", a:"Account SAS, Service SAS, User delegation SAS (signé par Entra ID → recommandé)."},
-  {d:"sto", q:"Révoquer / gérer un SAS côté serveur ?", a:"Stored access policy (politique stockée sur le conteneur : la modifier ou la supprimer révoque les SAS qui s'y rattachent)."},
+  {d:"sto", q:"Les 3 types de SAS ?", a:"Account SAS, Service SAS, User delegation SAS (signée par Entra ID, Blobs uniquement : la plus recommandée)."},
+  {d:"sto", q:"Révoquer / gérer un SAS côté serveur ?", a:"Stored access policy (politique stockée sur le conteneur : la modifier ou la supprimer révoque les SAS qui s'y rattachent). Service SAS uniquement."},
   {d:"sto", q:"Portée des <b>access keys</b> ?", a:"Accès total au compte : à éviter pour un partenaire (préférer un SAS), et penser à la rotation régulière."},
   {d:"sto", q:"Accéder au Storage <b>sans clés</b> ?", a:"Microsoft Entra ID + RBAC."},
   {d:"sto", q:"Les 3 modes de <b>Public Network Access</b> (PNA) ?", a:"All networks (ouvert), Selected networks (firewall actif), Disabled (Private Endpoint obligatoire)."},
@@ -356,7 +357,7 @@ const CARDS = [
   {d:"net", q:"L'apex (@) d'un domaine peut-il être un CNAME ?", a:"Non : utiliser un enregistrement A ou un alias record."},
   {d:"net", q:"Qu'est-ce qu'un <b>alias record</b> Azure DNS ?", a:"Pointer vers une ressource Azure (Public IP, LB, Traffic Manager, CDN)."},
   {d:"net", q:"Les composants d'un <b>Load Balancer</b> ?", a:"Backend pool, health probe, règle de répartition (hash 5-tuple : IP source/dest, ports, protocole), session persistence."},
-  {d:"net", q:"LB SKU <b>Basic</b> vs <b>Standard</b> ?", a:"Standard = zone-redundant, sécurisé par défaut, SLA. Basic = limité / legacy."},
+  {d:"net", q:"LB SKU <b>Basic</b> vs <b>Standard</b> ?", a:"Standard = zone-redundant, sécurisé par défaut, SLA. Basic = legacy, retiré depuis septembre 2025 (à l'exam : la réponse est Standard)."},
   {d:"net", q:"Qu'est-ce qu'une <b>inbound NAT rule</b> ?", a:"Port forwarding vers une VM précise."},
   {d:"net", q:"Qu'est-ce qu'<b>Application Gateway</b> ?", a:"LB de couche 7 : routing par path / host, listeners, WAF, SSL offload."},
   {d:"net", q:"Azure Firewall vs NSG ?", a:"Azure Firewall = firewall managé stateful (FQDN, threat intel). NSG = filtrage L3/L4 basique."},
@@ -384,39 +385,56 @@ const CARDS = [
   {d:"mon", q:"VM insights / Container insights ?", a:"Monitoring approfondi des VM / conteneurs (perf, dépendances)."},
   {d:"mon", q:"Protéger une VM avec Azure Backup : les 4 étapes ?", a:"1. Créer/choisir un <b>Recovery Services Vault</b> → 2. appliquer une <b>Backup Policy</b> → 3. Azure Backup exécute les sauvegardes → 4. les points de restauration sont conservés dans le vault."},
 
-  // ===== Pièges d'examen =====
-  {d:"pie", q:"Piège 1 · Un VNet lié à plusieurs zones DNS privées : combien peuvent avoir l'<b>auto-enregistrement</b> ?", a:"UNE SEULE zone par VNet. La résolution (lecture) marche vers des dizaines de zones liées, mais l'auto-enregistrement ne s'active que sur un seul lien."},
-  {d:"pie", q:"Piège 2 · Auto-enregistrement DNS vers une zone <b>publique</b> : possible ?", a:"Non : l'auto-enregistrement ne fonctionne que vers les zones DNS <b>privées</b>."},
-  {d:"pie", q:"Piège 3 · On active l'auto-enregistrement sur un VNet plein de VM déjà allumées depuis des mois : que se passe-t-il ?", a:"Effet rétroactif : ça marche quand même. Azure scanne le réseau et ajoute les enregistrements manquants des VM existantes."},
-  {d:"pie", q:"Piège 4 · Taille minimale du subnet pour <b>Azure Bastion</b> ?", a:"<code>/26</code> ou plus grand (/25, /24, /22…)."},
-  {d:"pie", q:"Piège 5 · Règle NSG pour du trafic <b>DNS</b> : quel protocole choisir ?", a:"DNS utilise UDP <b>et</b> TCP (port 53) → mettre <b>Any</b> dans la règle."},
-  {d:"pie", q:"Piège 6 · Le peering VNet1 ↔ VNet2 se crée-t-il automatiquement dans les deux sens ?", a:"Non : il faut créer LES DEUX liens (VNet1 → VNet2 <b>et</b> VNet2 → VNet1)."},
-  {d:"pie", q:"Piège 7 · Azure SQL Managed Instance : son sous-réseau est-il personnalisable ?", a:"Non : le service exige un sous-réseau dédié et délégué, avec des règles imposées qu'on ne peut pas modifier."},
-  {d:"pie", q:"Piège 8 · Combien de plages d'adresses dans UNE règle NSG ?", a:"Plusieurs ! Plages séparées par des virgules, ou plusieurs subnets, ou un ASG."},
-  {d:"pie", q:"Piège 9 · Peering entre 2 VNets de 2 <b>abonnements</b> voire 2 <b>tenants</b> différents ?", a:"Possible, sans restriction : abonnements différents ET tenants différents peuvent se peerer."},
-  {d:"pie", q:"Piège 10 · Le DNS fourni par Azure (par défaut) résout-il entre VNets <b>peerés</b> ?", a:"Non : la résolution par défaut ne traverse pas le peering. Solution : une zone DNS privée liée aux 2 VNets (ou un serveur DNS custom)."},
-  {d:"pie", q:"Piège 11 · Disques de données : <code>D4s_v3</code> vs <code>D2s_v3</code> ?", a:"D4s_v3 = 8 disques de données, D2s_v3 = 4 (règle Dsv3 ≈ 2 × vCPU). Le max de disques dépend de la TAILLE de la VM."},
-  {d:"pie", q:"Piège 13 · Alerter sur une recommandation <b>Azure Advisor</b> : quel type de règle ?", a:"<b>Activity Log alert</b> (Advisor passe par l'Activity Log). Métriques / logs classiques = alert rules Azure Monitor."},
-  {d:"pie", q:"Piège 14 · Azure Site Recovery avec option <b>High Churn</b> (fort volume d'écritures) : quel compte de stockage cache ?", a:"Compte <b>Premium Block Blob</b>."},
-  {d:"pie", q:"Piège 15 · Les tiers Hot / Cool / Archive demandent quel type de compte ?", a:"General Purpose <b>v2</b> (pas de tiers d'accès en GPv1)."},
-  {d:"pie", q:"Piège 16 · <b>AzCopy</b> : quelles méthodes d'authentification ?", a:"Microsoft Entra ID ou <b>SAS</b> uniquement (pas de clé de compte directe)."},
-  {d:"pie", q:"Piège 17 · <b>Object Replication</b> : qui génère les changements, et quel prérequis ?", a:"Seule la SOURCE génère les changements, mais le <b>versioning</b> doit être activé sur les DEUX comptes."},
-  {d:"pie", q:"Piège 18 · Limites de notification des alertes (Action Group) ?", a:"Email : <b>100 / heure</b>. SMS et vocal : <b>1 toutes les 5 min</b> (≈ 12 / heure)."},
-  {d:"pie", q:"Piège 19 · ASR entre région A et région B (aller-retour) : combien de vaults ?", a:"Minimum 2, un par région : un vault ASR doit être dans une AUTRE région que les VM qu'il protège. Pour couvrir A vers B et B vers A, il en faut donc un de chaque côté."},
-  {d:"pie", q:"Piège 20 · Un Load Balancer <b>Standard</b> peut-il servir plusieurs subnets d'un VNet ?", a:"Oui : le backend pool du SKU Standard peut couvrir plusieurs subnets du même VNet."},
-  {d:"pie", q:"Piège 21 · Availability <b>Set</b> vs <b>Zone</b> : lequel est une ressource à créer ?", a:"Set = objet logique à CRÉER dans un RG (fault/update domains, même datacenter). Zone = PAS une ressource : option d'emplacement physique choisie à la création de la VM."},
-  {d:"pie", q:"Piège 22 · Swap de slots App Service : que deviennent app settings et connection strings ?", a:"Par défaut ils SUIVENT le code (échangés). Parade : cocher <b>« Deployment slot setting »</b> pour les rendre sticky : la config reste alors collée à son slot d'origine."},
-  {d:"pie", q:"Piège 23 · Masques minimum : Bastion / Firewall / Passerelle VPN ?", a:"Azure Bastion <code>/26</code> · Azure Firewall <code>/26</code> · Passerelle VPN <code>/27</code>."},
-  {d:"pie", q:"Piège 24 · Contrainte de subnet d'<b>Application Gateway</b> ?", a:"Un sous-réseau ENTIER dédié, pour lui tout seul."},
-  {d:"pie", q:"Piège 25 · Noms de subnets imposés : Bastion / VPN / Firewall ?", a:"<code>AzureBastionSubnet</code> · <code>GatewaySubnet</code> · <code>AzureFirewallSubnet</code> (orthographe exacte)."},
-  {d:"pie", q:"Piège 26 · Peering A-B et B-C : comment A joint-il C via la gateway de B ?", a:"Sur B (le hub) : <b>Allow gateway transit</b>. Sur A et C (les spokes) : <b>Use remote gateway</b>. (Le peering seul n'est jamais transitif.)"},
-  {d:"pie", q:"Piège 27 · GRS vs Object Replication : qui choisit la région de destination ?", a:"GRS = région appariée IMPOSÉE par Microsoft. Object Replication = destination AU CHOIX + versioning obligatoire + Blobs uniquement (GPv2 / premium block blob)."},
-  {d:"pie", q:"Piège 28 · Trafic arrivant par VPN / ExpressRoute : quel répartiteur ?", a:"IP privée → <b>Load Balancer interne</b> ou Application Gateway (frontend privé). Traffic Manager et Front Door = Internet uniquement !"},
-  {d:"pie", q:"Piège 29 · Appareil Entra ID <b>Joined</b> vs <b>Registered</b> ?", a:"Joined = appareil d'ENTREPRISE (l'IT exige le contrôle total). Registered = BYOD perso (l'employé garde le contrôle de sa machine)."},
-  {d:"pie", q:"Piège 30 · UDR qui route le trafic vers une <b>NVA</b> (firewall / routeur virtuel) : que faut-il activer sur la VM ?", a:"<b>IP forwarding</b> sur sa carte réseau (NIC). Sans ça, la VM rejette les paquets qui ne lui sont pas destinés."},
-  {d:"pie", q:"Piège 31 · <b>DCR</b> vs <b>Diagnostic settings</b> ?", a:"DCR (Data Collection Rule) = ce qui se passe DANS l'OS de la VM (nécessite l'agent Azure Monitor, AMA). Diagnostic settings = ce que la plateforme Azure voit de la ressource, de l'extérieur."},
-  {d:"pie", q:"Piège 32 · Azure Backup et Azure Site Recovery : prérequis commun ?", a:"Un <b>Recovery Services Vault</b>."},
-  {d:"pie", q:"Piège 33 · <b>IP flow verify</b> : garde-t-il des logs ?", a:"Non : test ponctuel, rien n'est enregistré. Pour un historique : NSG flow logs."},
+  // ===== Pièges d'examen (groupés par thème ; la numérotation d'origine est conservée) =====
+  // --- Réseau ---
+  {d:"pie", q:"Piège 1 · Réseau · Un VNet lié à plusieurs zones DNS privées : combien peuvent avoir l'<b>auto-enregistrement</b> ?", a:"UNE SEULE zone par VNet. La résolution (lecture) marche vers des dizaines de zones liées, mais l'auto-enregistrement ne s'active que sur un seul lien."},
+  {d:"pie", q:"Piège 2 · Réseau · Auto-enregistrement DNS vers une zone <b>publique</b> : possible ?", a:"Non : l'auto-enregistrement ne fonctionne que vers les zones DNS <b>privées</b>."},
+  {d:"pie", q:"Piège 3 · Réseau · On active l'auto-enregistrement sur un VNet plein de VM déjà allumées depuis des mois : que se passe-t-il ?", a:"Effet rétroactif : ça marche quand même. Azure scanne le réseau et ajoute les enregistrements manquants des VM existantes."},
+  {d:"pie", q:"Piège 10 · Réseau · Le DNS fourni par Azure (par défaut) résout-il entre VNets <b>peerés</b> ?", a:"Non : la résolution par défaut ne traverse pas le peering. Solution : une zone DNS privée liée aux 2 VNets (ou un serveur DNS custom)."},
+  {d:"pie", q:"Piège 5 · Réseau · Règle NSG pour du trafic <b>DNS</b> : quel protocole choisir ?", a:"DNS utilise UDP <b>et</b> TCP (port 53) → mettre <b>Any</b> dans la règle."},
+  {d:"pie", q:"Piège 4 · Réseau · Taille minimale du subnet pour <b>Azure Bastion</b> ?", a:"<code>/26</code> ou plus grand (/25, /24, /22…)."},
+  {d:"pie", q:"Piège 23 · Réseau · Masques minimum : Bastion / Firewall / Passerelle VPN ?", a:"Azure Bastion <code>/26</code> · Azure Firewall <code>/26</code> · Passerelle VPN <code>/27</code>."},
+  {d:"pie", q:"Piège 25 · Réseau · Noms de subnets imposés : Bastion / VPN / Firewall ?", a:"<code>AzureBastionSubnet</code> · <code>GatewaySubnet</code> · <code>AzureFirewallSubnet</code> (orthographe exacte)."},
+  {d:"pie", q:"Piège 24 · Réseau · Contrainte de subnet d'<b>Application Gateway</b> ?", a:"Un sous-réseau ENTIER dédié, pour lui tout seul."},
+  {d:"pie", q:"Piège 7 · Réseau · Azure SQL Managed Instance : son sous-réseau est-il personnalisable ?", a:"Non : le service exige un sous-réseau dédié et délégué, avec des règles imposées qu'on ne peut pas modifier."},
+  {d:"pie", q:"Piège 45 · Réseau · Redimensionner un subnet qui contient déjà des ressources ?", a:"Possible seulement si la nouvelle plage contient TOUTES les IP déjà utilisées (agrandir passe ; exclure une IP en usage échoue). Sinon : vider le subnet d'abord."},
+  {d:"pie", q:"Piège 8 · Réseau · Combien de plages d'adresses dans UNE règle NSG ?", a:"Plusieurs ! Plages séparées par des virgules, ou plusieurs subnets, ou un ASG."},
+  {d:"pie", q:"Piège 34 · Réseau · NSG sur le subnet ET sur la NIC : lequel s'applique ?", a:"Les DEUX. En entrée : subnet d'abord, puis NIC ; chaque NSG doit autoriser le flux, sinon blocage. (Vue combinée : Effective security rules.)"},
+  {d:"pie", q:"Piège 6 · Réseau · Le peering VNet1 ↔ VNet2 se crée-t-il automatiquement dans les deux sens ?", a:"Non : il faut créer LES DEUX liens (VNet1 → VNet2 <b>et</b> VNet2 → VNet1)."},
+  {d:"pie", q:"Piège 9 · Réseau · Peering entre 2 VNets de 2 <b>abonnements</b> voire 2 <b>tenants</b> différents ?", a:"Possible, sans restriction : abonnements différents ET tenants différents peuvent se peerer."},
+  {d:"pie", q:"Piège 26 · Réseau · Peering A-B et B-C : comment A joint-il C via la gateway de B ?", a:"Sur B (le hub) : <b>Allow gateway transit</b>. Sur A et C (les spokes) : <b>Use remote gateway</b>. (Le peering seul n'est jamais transitif.)"},
+  {d:"pie", q:"Piège 20 · Réseau · Un Load Balancer <b>Standard</b> peut-il servir plusieurs subnets d'un VNet ?", a:"Oui : le backend pool du SKU Standard peut couvrir plusieurs subnets du même VNet."},
+  {d:"pie", q:"Piège 28 · Réseau · Trafic arrivant par VPN / ExpressRoute : quel répartiteur ?", a:"IP privée → <b>Load Balancer interne</b> ou Application Gateway (frontend privé). Traffic Manager et Front Door = Internet uniquement !"},
+  {d:"pie", q:"Piège 44 · Réseau · Choisir le bon répartiteur : la matrice global / régional ?", a:"HTTP(S) global = <b>Front Door</b> · non-HTTP global = <b>Traffic Manager</b> (DNS : il ne voit jamais le trafic) · HTTP(S) régional = <b>Application Gateway</b> · non-HTTP régional = <b>Load Balancer</b>."},
+  {d:"pie", q:"Piège 30 · Réseau · UDR qui route le trafic vers une <b>NVA</b> (firewall / routeur virtuel) : que faut-il activer sur la VM ?", a:"<b>IP forwarding</b> sur sa carte réseau (NIC). Sans ça, la VM rejette les paquets qui ne lui sont pas destinés."},
+  {d:"pie", q:"Piège 36 · Réseau · Déplacer une VM existante vers un autre VNet ?", a:"Impossible : une NIC peut changer de subnet DANS le même VNet, mais jamais de VNet. Changer de VNet = recréer la VM."},
+  {d:"pie", q:"Piège 37 · Réseau · Que devient une IP publique dynamique quand la VM est arrêtée (deallocated) ?", a:"Elle est PERDUE (nouvelle IP au redémarrage). Une IP statique est conservée. SKU Standard = toujours statique (le SKU Basic est retiré depuis 2025)."},
+  {d:"pie", q:"Piège 38 · Réseau · Où configurer une IP privée statique pour une VM ?", a:"Côté Azure, sur la NIC (configuration IP), JAMAIS dans l'OS de la VM (sinon perte de connectivité)."},
+  {d:"pie", q:"Piège 33 · Réseau · <b>IP flow verify</b> : garde-t-il des logs ?", a:"Non : test ponctuel, rien n'est enregistré. Pour un historique : NSG flow logs."},
+  // --- Stockage ---
+  {d:"pie", q:"Piège 15 · Stockage · Les tiers Hot / Cool / Archive demandent quel type de compte ?", a:"General Purpose <b>v2</b> (pas de tiers d'accès en GPv1)."},
+  {d:"pie", q:"Piège 40 · Stockage · Durées minimales de séjour des tiers Cool / Cold / Archive ?", a:"Cool 30 j, Cold 90 j, Archive 180 j (sinon frais de suppression anticipée). Et un blob archivé n'est PAS lisible directement : réhydratation d'abord (jusqu'à ~15 h en priorité standard)."},
+  {d:"pie", q:"Piège 16 · Stockage · <b>AzCopy</b> : quelles méthodes d'authentification ?", a:"Microsoft Entra ID ou <b>SAS</b> uniquement (pas de clé de compte directe)."},
+  {d:"pie", q:"Piège 17 · Stockage · <b>Object Replication</b> : qui génère les changements, et quel prérequis ?", a:"Seule la SOURCE génère les changements, mais le <b>versioning</b> doit être activé sur les DEUX comptes."},
+  {d:"pie", q:"Piège 27 · Stockage · GRS vs Object Replication : qui choisit la région de destination ?", a:"GRS = région appariée IMPOSÉE par Microsoft. Object Replication = destination AU CHOIX + versioning obligatoire + Blobs uniquement (GPv2 / premium block blob)."},
+  // --- Compute & App Service ---
+  {d:"pie", q:"Piège 11 · Compute · Disques de données : <code>D4s_v3</code> vs <code>D2s_v3</code> ?", a:"D4s_v3 = 8 disques de données, D2s_v3 = 4 (règle Dsv3 ≈ 2 × vCPU). Le max de disques dépend de la TAILLE de la VM."},
+  {d:"pie", q:"Piège 41 · Compute · SLA d'une VM SEULE (sans set ni zone) ?", a:"99,9 %, et uniquement si TOUS ses disques sont Premium SSD ou Ultra. Sinon, pas de SLA mono-VM."},
+  {d:"pie", q:"Piège 21 · Compute · Availability <b>Set</b> vs <b>Zone</b> : lequel est une ressource à créer ?", a:"Set = objet logique à CRÉER dans un RG (fault/update domains, même datacenter). Zone = PAS une ressource : option d'emplacement physique choisie à la création de la VM."},
+  {d:"pie", q:"Piège 35 · Compute · Ajouter une VM existante à un Availability Set ?", a:"Impossible : le choix se fait UNIQUEMENT à la création de la VM. Pour l'ajouter, il faut supprimer et recréer la VM."},
+  {d:"pie", q:"Piège 22 · App Service · Swap de slots : que deviennent app settings et connection strings ?", a:"Par défaut ils SUIVENT le code (échangés). Parade : cocher <b>« Deployment slot setting »</b> pour les rendre sticky : la config reste alors collée à son slot d'origine."},
+  // --- Identités & Gouvernance ---
+  {d:"pie", q:"Piège 29 · Identité · Appareil Entra ID <b>Joined</b> vs <b>Registered</b> ?", a:"Joined = appareil d'ENTREPRISE (l'IT exige le contrôle total). Registered = BYOD perso (l'employé garde le contrôle de sa machine)."},
+  {d:"pie", q:"Piège 39 · Gouvernance · Les tags d'un resource group sont-ils hérités par ses ressources ?", a:"Non : aucun héritage par défaut. Pour propager, il faut une Azure Policy avec effet <b>Modify</b> (+ remediation task pour l'existant)."},
+  // --- Monitoring & Backup ---
+  {d:"pie", q:"Piège 13 · Monitoring · Alerter sur une recommandation <b>Azure Advisor</b> : quel type de règle ?", a:"<b>Activity Log alert</b> (Advisor passe par l'Activity Log). Métriques / logs classiques = alert rules Azure Monitor."},
+  {d:"pie", q:"Piège 18 · Monitoring · Limites de notification des alertes (Action Group) ?", a:"Email : <b>100 / heure</b>. SMS et vocal : <b>1 toutes les 5 min</b> (≈ 12 / heure)."},
+  {d:"pie", q:"Piège 43 · Monitoring · Rétention par défaut : Activity Log et métriques ?", a:"Activity Log : <b>90 jours</b>. Métriques : <b>93 jours</b>. Pour garder plus longtemps : diagnostic settings vers Log Analytics / Storage."},
+  {d:"pie", q:"Piège 31 · Monitoring · <b>DCR</b> vs <b>Diagnostic settings</b> ?", a:"DCR (Data Collection Rule) = ce qui se passe DANS l'OS de la VM (nécessite l'agent Azure Monitor, AMA). Diagnostic settings = ce que la plateforme Azure voit de la ressource, de l'extérieur."},
+  {d:"pie", q:"Piège 14 · Backup · Azure Site Recovery avec option <b>High Churn</b> (fort volume d'écritures) : quel compte de stockage cache ?", a:"Compte <b>Premium Block Blob</b>."},
+  {d:"pie", q:"Piège 19 · Backup · ASR entre région A et région B (aller-retour) : combien de vaults ?", a:"Minimum 2, un par région : un vault ASR doit être dans une AUTRE région que les VM qu'il protège. Pour couvrir A vers B et B vers A, il en faut donc un de chaque côté."},
+  {d:"pie", q:"Piège 42 · Backup · Région du vault : Azure Backup vs ASR ?", a:"Azure Backup : le Recovery Services Vault doit être dans la MÊME région que les VM à sauvegarder. ASR : dans une AUTRE région (la destination). Les deux règles sont opposées."},
+  {d:"pie", q:"Piège 32 · Backup · Azure Backup et Azure Site Recovery : prérequis commun ?", a:"Un <b>Recovery Services Vault</b>."},
 
   // ===== Global vs Régional =====
   {d:"geo", q:"Les 4 services <b>globaux</b> (pas liés à une région) ?", a:"Microsoft Entra ID · Azure DNS · Traffic Manager · Azure Front Door."},
@@ -437,6 +455,7 @@ const CARDS = [
   {d:"tip", q:"Déclencheur : « HA contre panne datacenter »", a:"→ Availability Zones."},
   {d:"tip", q:"Déclencheur : « forcer / appliquer une conformité »", a:"→ Azure Policy."},
   {d:"tip", q:"Déclencheur : « DR entre régions »", a:"→ Azure Site Recovery (ASR)."},
+  {d:"tip", q:"Déclencheur : « transférer des dizaines de To sans saturer le réseau »", a:"→ Azure Data Box (transfert physique)."},
 ];
 CARDS.forEach((c,i)=>c.id=i);
 
