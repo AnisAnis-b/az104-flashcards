@@ -48,8 +48,19 @@ Chaque carte « Piège » de ce paquet vient d'une erreur réellement commise en
 ## Utilisation
 
 - **En ligne** : [anisanis-b.github.io/az104-flashcards/revision.html](https://anisanis-b.github.io/az104-flashcards/revision.html)
-- **Sur téléphone** : ouvre le lien ci-dessus → menu du navigateur → **« Ajouter à l'écran d'accueil »**. L'app fonctionne ensuite même sans connexion.
 - **Hors ligne / local** : télécharge `revision.html` et ouvre-le dans n'importe quel navigateur, tout est autonome.
+
+### Installer comme une app (recommandé)
+
+L'outil est une PWA : une fois installée, elle se lance depuis sa propre icône, en plein écran, et fonctionne **sans connexion**. Idéal pour réviser dans les transports.
+
+| Appareil | Comment installer (30 secondes) |
+|---|---|
+| **Android** (Chrome) | Ouvre la [page de révision](https://anisanis-b.github.io/az104-flashcards/revision.html) → menu **⋮** → **« Ajouter à l'écran d'accueil »** (ou « Installer l'application ») |
+| **iPhone / iPad** (Safari) | Ouvre la page de révision → bouton **Partager** → **« Sur l'écran d'accueil »** |
+| **PC / Mac** (Edge ou Chrome) | Ouvre la page de révision → icône **« Installer l'application »** à droite de la barre d'adresse → l'app s'épingle à la barre des tâches ou au Dock |
+
+La progression (« je sais » / « à revoir ») est sauvegardée séparément sur chaque appareil.
 
 ### Raccourcis clavier
 
