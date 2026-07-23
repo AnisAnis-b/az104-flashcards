@@ -1,8 +1,8 @@
 # AZ-104 · Cartes de révision
 
-> 🇬🇧 *Free French-language flashcards app for the Microsoft AZ-104 (Azure Administrator) certification — 168 cards, 33 real exam traps, installable PWA, works offline.*
+> 🇬🇧 *Free French-language flashcards app for the Microsoft AZ-104 (Azure Administrator) certification: 168 cards, 33 real exam traps, installable PWA, works offline.*
 
-**168 flashcards en français pour préparer la certification [Microsoft AZ-104](https://learn.microsoft.com/fr-fr/credentials/certifications/azure-administrator/) (Azure Administrator)** — dont 33 pièges d'examen tirés d'erreurs réelles sur des tests blancs. Gratuit, open source, sans inscription, sans tracking.
+**168 flashcards en français pour préparer la certification [Microsoft AZ-104](https://learn.microsoft.com/fr-fr/credentials/certifications/azure-administrator/) (Azure Administrator)**, dont 33 pièges d'examen tirés d'erreurs réelles sur des tests blancs. Gratuit, open source, sans inscription, sans tracking.
 
 [![Réviser maintenant](https://img.shields.io/badge/%E2%96%B6%20R%C3%A9viser%20maintenant-60a5fa?style=for-the-badge&labelColor=0e1016)](https://anisanis-b.github.io/az104-flashcards/revision.html)
 [![Présentation](https://img.shields.io/badge/Pr%C3%A9sentation-191d2a?style=for-the-badge)](https://anisanis-b.github.io/az104-flashcards/)
@@ -23,10 +23,10 @@ Chaque carte « Piège » de ce paquet vient d'une erreur réellement commise en
 
 ## Fonctionnalités
 
-- 🃏 **Rappel actif** — une question au recto, la réponse au verso : tu réponds avant de retourner.
-- 🗂️ **8 domaines filtrables** — Gouvernance, Stockage, Compute, Réseau, Monitoring, Pièges d'examen, Portée (global vs régional), Astuces réflexes.
-- ⭐ **« Je sais » / « À revoir »** — progression sauvegardée sur l'appareil (localStorage), avec un mode qui ne fait tourner que tes lacunes.
-- 📱 **PWA installable** — « Ajouter à l'écran d'accueil » sur Android/iOS : plein écran, icône dédiée, **fonctionne hors ligne**.
+- 🃏 **Rappel actif** : une question au recto, la réponse au verso. Tu réponds avant de retourner.
+- 🗂️ **8 domaines filtrables** : Gouvernance, Stockage, Compute, Réseau, Monitoring, Pièges d'examen, Portée (global vs régional), Astuces réflexes.
+- ⭐ **« Je sais » / « À revoir »** : progression sauvegardée sur l'appareil (localStorage), avec un mode qui ne fait tourner que tes lacunes.
+- 📱 **PWA installable** : « Ajouter à l'écran d'accueil » sur Android/iOS. Plein écran, icône dédiée, **fonctionne hors ligne**.
 - 🔀 **Mélange, navigation au swipe** (mobile) **et au clavier** (desktop).
 - 🪶 **Un seul fichier HTML par page, zéro dépendance, zéro compte, zéro tracking.**
 
@@ -49,7 +49,7 @@ Chaque carte « Piège » de ce paquet vient d'une erreur réellement commise en
 
 - **En ligne** : [anisanis-b.github.io/az104-flashcards/revision.html](https://anisanis-b.github.io/az104-flashcards/revision.html)
 - **Sur téléphone** : ouvre le lien ci-dessus → menu du navigateur → **« Ajouter à l'écran d'accueil »**. L'app fonctionne ensuite même sans connexion.
-- **Hors ligne / local** : télécharge `revision.html` et ouvre-le dans n'importe quel navigateur — tout est autonome.
+- **Hors ligne / local** : télécharge `revision.html` et ouvre-le dans n'importe quel navigateur, tout est autonome.
 
 ### Raccourcis clavier
 
@@ -81,7 +81,7 @@ HTML + CSS + JavaScript vanilla, un fichier par page. Pas de framework, pas de b
 
 ## Licence & marques
 
-Code et contenu sous licence [MIT](LICENSE). Projet indépendant, **non affilié à Microsoft** — AZ-104, Azure et Microsoft sont des marques de Microsoft Corporation. Les informations reflètent l'état des services Azure au moment de la rédaction (2026) : vérifie toujours la [doc officielle](https://learn.microsoft.com/fr-fr/azure/) en cas de doute.
+Code et contenu sous licence [MIT](LICENSE). Projet indépendant, **non affilié à Microsoft**. AZ-104, Azure et Microsoft sont des marques de Microsoft Corporation. Les informations reflètent l'état des services Azure au moment de la rédaction (2026) : vérifie toujours la [doc officielle](https://learn.microsoft.com/fr-fr/azure/) en cas de doute.
 
 ---
 
