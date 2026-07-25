@@ -7,14 +7,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<meta name="description" content="182 cartes de révision gratuites pour la certification Microsoft AZ-104 (Azure Administrator) : pièges d'examen, rappel actif, progression sauvegardée, utilisable hors ligne.">
+<meta name="description" content="190 cartes de révision gratuites pour la certification Microsoft AZ-104 (Azure Administrator) : pièges d'examen, rappel actif, progression sauvegardée, utilisable hors ligne.">
 <meta name="theme-color" content="#0e1016">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="AZ-104 · Cartes de révision">
-<meta property="og:description" content="182 cartes pour réviser l'AZ-104 : pièges d'examen, 8 domaines, astuces réflexes. Gratuit, open source, hors ligne.">
+<meta property="og:description" content="190 cartes pour réviser l'AZ-104 : pièges d'examen, 8 domaines, astuces réflexes. Gratuit, open source, hors ligne.">
 <meta property="og:url" content="https://anisanis-b.github.io/az104-flashcards/revision.html">
 <meta property="og:image" content="https://anisanis-b.github.io/az104-flashcards/assets/screenshot.png">
 <style>
@@ -234,7 +234,7 @@
   </div>
 
   <footer id="foot">
-    182 cartes · pièges d'examen &amp; astuces inclus<br>
+    190 cartes · pièges d'examen &amp; astuces inclus<br>
     Progression sauvegardée sur cet appareil.<br>
     <a href="index.html" style="color:var(--muted-2)">À propos, code source &amp; contributions</a>
   </footer>
@@ -243,14 +243,14 @@
 <script>
 /* ---------- Données ---------- */
 const DOMAINS = {
-  gov:{label:"Identités & Gouvernance", short:"Gouvernance", color:"var(--gov)"},
-  sto:{label:"Stockage",                short:"Stockage",    color:"var(--sto)"},
-  com:{label:"Compute",                 short:"Compute",     color:"var(--com)"},
-  net:{label:"Réseau",                  short:"Réseau",      color:"var(--net)"},
-  mon:{label:"Monitoring & Maintenance",short:"Monitoring",  color:"var(--mon)"},
-  pie:{label:"Pièges d'examen",         short:"Pièges",      color:"var(--pie)"},
-  geo:{label:"Global vs Régional",      short:"Portée",      color:"var(--geo)"},
-  tip:{label:"Astuces exam",            short:"Astuces",     color:"var(--tip)"},
+  gov:{label:"Gérer les identités et la gouvernance Azure",   short:"Identités & Gouvernance", color:"var(--gov)"},
+  sto:{label:"Implémenter et gérer le stockage",              short:"Stockage",                color:"var(--sto)"},
+  com:{label:"Déployer et gérer les ressources de calcul",    short:"Compute",                 color:"var(--com)"},
+  net:{label:"Implémenter et gérer les réseaux virtuels",     short:"Réseaux virtuels",        color:"var(--net)"},
+  mon:{label:"Surveiller et sauvegarder les ressources Azure",short:"Surveillance & Backup",   color:"var(--mon)"},
+  pie:{label:"Pièges d'examen",                               short:"Pièges",                  color:"var(--pie)"},
+  geo:{label:"Global vs Régional",                            short:"Portée",                  color:"var(--geo)"},
+  tip:{label:"Astuces exam",                                  short:"Astuces",                 color:"var(--tip)"},
 };
 
 const CARDS = [
@@ -337,6 +337,7 @@ const CARDS = [
   {d:"com", q:"Quel plan App Service ne supporte PAS l'autoscale ?", a:"Basic. Il faut scale up vers Standard+ puis une règle métrique."},
   {d:"com", q:"À quoi servent les <b>deployment slots</b> ?", a:"Staging / prod, swap avec warm-up. Les slot settings restent collés au slot."},
   {d:"com", q:"Logs App Service durables vs temporaires ?", a:"Application Logging (Blob) = durable. FileSystem = temporaire / local."},
+  {d:"com", q:"Runtimes App Service : Windows ou Linux ?", a:"ASP.NET 4.8 = Windows uniquement · PHP 8.2 et Python 3.10 = Linux uniquement · Node 16 LTS et Java 11 = les deux."},
   {d:"com", q:"Pourquoi CNAME plutôt que A pour App Service ?", a:"L'IP peut changer ; le CNAME suit le nom d'hôte."},
   {d:"com", q:"Une VM peut-elle être dans un Availability Set <b>et</b> une Availability Zone ?", a:"Non : c'est l'un OU l'autre (mutuellement exclusifs)."},
 
@@ -344,14 +345,16 @@ const CARDS = [
   {d:"net", q:"Les plages d'adresses privées (RFC 1918) ?", a:"<code>10.0.0.0/8</code>, <code>172.16.0.0/12</code>, <code>192.168.0.0/16</code>."},
   {d:"net", q:"Combien d'IP réservées par subnet, et lesquelles ?", a:"5 : .0 (réseau), .1 (gateway), .2/.3 (Azure DNS), dernière (broadcast)."},
   {d:"net", q:"Qu'est-ce que le <b>VNet Peering</b> ?", a:"Relier 2 VNets (non transitif). Regional vs global ; gateway transit ; allow forwarded traffic."},
+  {d:"net", q:"Un peering affiche l'état <b>« Disconnected »</b> : comment le réparer ?", a:"On ne le répare pas : il faut SUPPRIMER le peering et le recréer. (Cet état apparaît quand un des deux liens a été supprimé.)"},
   {d:"net", q:"Où s'applique un <b>NSG</b> ?", a:"Au subnet OU à la NIC."},
   {d:"net", q:"Comment un NSG évalue-t-il ses règles ?", a:"Par priorité (100 à 4096, le chiffre le plus bas gagne) ; la première règle qui correspond s'applique ; règles par défaut incluses."},
+  {d:"net", q:"Les règles <b>PAR DÉFAUT</b> d'un NSG ?", a:"Entrant : autorise tout le trafic du VNet (peering inclus) et du Load Balancer Azure, BLOQUE tout depuis Internet. Sortant : autorise tout vers le VNet ET vers Internet."},
   {d:"net", q:"NSG <b>stateful</b> : qu'est-ce que ça implique ?", a:"La réponse à un flux autorisé est automatiquement permise (pas besoin de règle retour)."},
   {d:"net", q:"Qu'est-ce qu'un <b>ASG</b> ?", a:"Groupe logique de VM / NIC pour cibler les règles NSG."},
   {d:"net", q:"Voir les règles NSG réellement appliquées à une NIC ?", a:"Effective security rules."},
   {d:"net", q:"À quoi sert une <b>UDR / Route table</b> ?", a:"Surcharger le routage (next hop : Virtual Appliance, VNet Gateway, Internet, None)."},
   {d:"net", q:"Forcer le trafic via un firewall / NVA ?", a:"UDR pointant le next hop vers l'appliance (NVA)."},
-  {d:"net", q:"<b>Effective Routes</b> vs <b>Next Hop</b> ?", a:"Effective Routes = toutes les routes sur une NIC. Next Hop = prochain saut pour une destination."},
+  {d:"net", q:"<b>Effective Routes</b> vs <b>Next Hop</b> ?", a:"Effective Routes = toutes les routes appliquées à une NIC. Next hop = pour UNE destination donnée, indique vers quoi part le trafic, ou s'il ne part nulle part (None)."},
   {d:"net", q:"Associer un VNet à une zone DNS privée ?", a:"Virtual Network Link."},
   {d:"net", q:"Déléguer un sous-domaine DNS ?", a:"Enregistrement NS dans la zone parente."},
   {d:"net", q:"L'apex (@) d'un domaine peut-il être un CNAME ?", a:"Non : utiliser un enregistrement A ou un alias record."},
@@ -363,7 +366,10 @@ const CARDS = [
   {d:"net", q:"Azure Firewall vs NSG ?", a:"Azure Firewall = firewall managé stateful (FQDN, threat intel). NSG = filtrage L3/L4 basique."},
   {d:"net", q:"Rôle du <b>NAT Gateway</b> ?", a:"Sortie Internet partagée d'un subnet (SNAT : une IP publique de sortie unique et stable)."},
   {d:"net", q:"Qu'est-ce qu'<b>Azure Bastion</b> ?", a:"RDP / SSH via le portail, sans IP publique sur la VM."},
-  {d:"net", q:"Vérifier si un trafic est bloqué par un NSG ?", a:"IP flow verify (Network Watcher)."},
+  {d:"net", q:"Ordre de création d'un <b>VPN Site-à-Site</b> ?", a:"1. <code>GatewaySubnet</code> → 2. passerelle VPN (Virtual Network Gateway) → 3. <b>Local Network Gateway</b> (représente le site physique : son IP publique + ses plages) → 4. la Connexion VPN."},
+  {d:"net", q:"Vérifier si un trafic est bloqué par un NSG ?", a:"<b>IP flow verify</b> (Network Watcher) : diagnostique la connectivité vers / depuis une VM en testant un flux précis, et nomme la règle NSG qui l'autorise ou le bloque."},
+  {d:"net", q:"Capturer le trafic IP qui traverse un NSG (flux entrants / sortants) ?", a:"<b>NSG flow logs</b> (Network Watcher). Attention : plus de création depuis mi-2025, retrait le 30/09/2027. Successeur : <b>VNet flow logs</b> (couvre tout le VNet, sans doublons)."},
+  {d:"net", q:"Visualiser, requêter et comprendre le trafic réseau sur des cartes ?", a:"<b>Traffic Analytics</b> : traite UNIQUEMENT les données des flow logs (NSG / VNet), avec un workspace Log Analytics derrière."},
   {d:"net", q:"Connection Troubleshoot vs Connection Monitor ?", a:"Troubleshoot = test ponctuel. Monitor = surveillance continue."},
   {d:"net", q:"Peut-on associer un NSG au <b>GatewaySubnet</b> ?", a:"Non : NSG non supporté sur le GatewaySubnet (risque de casser la passerelle VPN)."},
 
@@ -374,6 +380,8 @@ const CARDS = [
   {d:"mon", q:"Activity Log vs Resource Logs ?", a:"Activity Log = actions de gestion (control plane). Resource Logs = activité interne de la ressource."},
   {d:"mon", q:"Rôle des <b>diagnostic settings</b> ?", a:"Envoyer les logs vers Log Analytics / Storage / Event Hub."},
   {d:"mon", q:"Rôle du <b>Log Analytics Workspace</b> ?", a:"Centraliser et interroger les logs (KQL)."},
+  {d:"mon", q:"Quels agents fonctionnent sur Azure <b>ET</b> on-premises (hybride) ?", a:"<b>Azure Monitor Agent</b> (logs et métriques de l'OS) et <b>Dependency Agent</b> (cartographie des processus et connexions), grâce à l'agent <b>Azure Arc</b> qui rattache les serveurs physiques / VM d'autres clouds à la gestion Azure."},
+  {d:"mon", q:"Quels agents fonctionnent <b>UNIQUEMENT</b> sur des VM Azure ?", a:"<b>Network Watcher Agent</b> (capture de paquets, tests de connectivité) et le <b>VM Guest Agent</b> (déploiement d'extensions, Backup), préinstallé sur les images Azure."},
   {d:"mon", q:"Les états d'une alerte ?", a:"Condition : Fired / Resolved. Utilisateur : New / Acknowledged / Closed."},
   {d:"mon", q:"Rétention max d'un dashboard partagé avec données Log Analytics ?", a:"30 jours."},
   {d:"mon", q:"MARS agent vs MABS / DPM ?", a:"MARS = petit agent pour fichiers / dossiers Windows. MABS / DPM = serveur de sauvegarde complet pour workloads (SQL, Hyper-V, VMware...)."},
@@ -410,7 +418,7 @@ const CARDS = [
   {d:"pie", q:"Piège 36 · Réseau · Déplacer une VM existante vers un autre VNet ?", a:"Impossible : une NIC peut changer de subnet DANS le même VNet, mais jamais de VNet. Changer de VNet = recréer la VM."},
   {d:"pie", q:"Piège 37 · Réseau · Que devient une IP publique dynamique quand la VM est arrêtée (deallocated) ?", a:"Elle est PERDUE (nouvelle IP au redémarrage). Une IP statique est conservée. SKU Standard = toujours statique (le SKU Basic est retiré depuis 2025)."},
   {d:"pie", q:"Piège 38 · Réseau · Où configurer une IP privée statique pour une VM ?", a:"Côté Azure, sur la NIC (configuration IP), JAMAIS dans l'OS de la VM (sinon perte de connectivité)."},
-  {d:"pie", q:"Piège 33 · Réseau · <b>IP flow verify</b> : garde-t-il des logs ?", a:"Non : test ponctuel, rien n'est enregistré. Pour un historique : NSG flow logs."},
+  {d:"pie", q:"Piège 33 · Réseau · <b>IP flow verify</b> : garde-t-il des logs ?", a:"Non : test ponctuel, rien n'est enregistré. Pour un historique : les flow logs (VNet flow logs, ex-NSG flow logs)."},
   // --- Stockage ---
   {d:"pie", q:"Piège 15 · Stockage · Les tiers Hot / Cool / Archive demandent quel type de compte ?", a:"General Purpose <b>v2</b> (pas de tiers d'accès en GPv1)."},
   {d:"pie", q:"Piège 40 · Stockage · Durées minimales de séjour des tiers Cool / Cold / Archive ?", a:"Cool 30 j, Cold 90 j, Archive 180 j (sinon frais de suppression anticipée). Et un blob archivé n'est PAS lisible directement : réhydratation d'abord (jusqu'à ~15 h en priorité standard)."},

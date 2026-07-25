@@ -1,13 +1,13 @@
 # AZ-104 · Cartes de révision
 
-> 🇬🇧 *Free French-language flashcards app for the Microsoft AZ-104 (Azure Administrator) certification: 182 cards, 44 real exam traps, installable PWA, works offline.*
+> 🇬🇧 *Free French-language flashcards app for the Microsoft AZ-104 (Azure Administrator) certification: 190 cards, 44 real exam traps, installable PWA, works offline.*
 
-**182 flashcards en français pour préparer la certification [Microsoft AZ-104](https://learn.microsoft.com/fr-fr/credentials/certifications/azure-administrator/) (Azure Administrator)**, dont 44 pièges d'examen tirés d'erreurs réelles sur des tests blancs. Gratuit, open source, sans inscription, sans tracking.
+**190 flashcards en français pour préparer la certification [Microsoft AZ-104](https://learn.microsoft.com/fr-fr/credentials/certifications/azure-administrator/) (Azure Administrator)**, organisées selon les 5 domaines officiels de l'examen, dont 44 pièges tirés d'erreurs réelles sur des tests blancs. Gratuit, open source, sans inscription, sans tracking.
 
 [![Réviser maintenant](https://img.shields.io/badge/%E2%96%B6%20R%C3%A9viser%20maintenant-60a5fa?style=for-the-badge&labelColor=0e1016)](https://anisanis-b.github.io/az104-flashcards/revision.html)
 [![Présentation](https://img.shields.io/badge/Pr%C3%A9sentation-191d2a?style=for-the-badge)](https://anisanis-b.github.io/az104-flashcards/)
 
-![182 cartes](https://img.shields.io/badge/cartes-182-60a5fa?labelColor=0e1016)
+![190 cartes](https://img.shields.io/badge/cartes-190-60a5fa?labelColor=0e1016)
 ![8 domaines](https://img.shields.io/badge/domaines-8-a78bfa?labelColor=0e1016)
 ![44 pièges](https://img.shields.io/badge/pi%C3%A8ges%20d'examen-44-fb923c?labelColor=0e1016)
 ![PWA hors ligne](https://img.shields.io/badge/PWA-hors%20ligne-4ade80?labelColor=0e1016)
@@ -24,7 +24,7 @@ Chaque carte « Piège » de ce paquet vient d'une erreur réellement commise en
 ## Fonctionnalités
 
 - 🃏 **Rappel actif** : une question au recto, la réponse au verso. Tu réponds avant de retourner.
-- 🗂️ **8 domaines filtrables** : Gouvernance, Stockage, Compute, Réseau, Monitoring, Pièges d'examen, Portée (global vs régional), Astuces réflexes.
+- 🗂️ **Les 5 domaines officiels de l'examen + 3 paquets transversaux** : Identités & Gouvernance, Stockage, Compute, Réseaux virtuels, Surveillance & Backup, plus les Pièges d'examen, la Portée (global vs régional) et les Astuces réflexes.
 - ⭐ **« Je sais » / « À revoir »** : progression sauvegardée sur l'appareil (localStorage), avec un mode qui ne fait tourner que tes lacunes.
 - 📱 **PWA installable** : « Ajouter à l'écran d'accueil » sur Android/iOS. Plein écran, icône dédiée, **fonctionne hors ligne**.
 - 🔀 **Mélange, navigation au swipe** (mobile) **et au clavier** (desktop).
@@ -32,16 +32,16 @@ Chaque carte « Piège » de ce paquet vient d'une erreur réellement commise en
 
 ## Contenu
 
-| Domaine | Cartes | Poids à l'examen | Ce que ça couvre |
+| Domaine (intitulés officiels de l'examen) | Cartes | Poids à l'examen | Ce que ça couvre |
 |---|---:|---:|---|
-| Identités & Gouvernance | 33 | 20-25 % | Entra ID, RBAC, Policy, locks, tags, licences P1/P2, managed identities |
-| Stockage | 21 | 15-20 % | SAS, redondances, tiers, Files/File Sync, object replication |
-| Compute | 26 | 20-25 % | VM, availability sets/zones, disques, ARM/Bicep, conteneurs, App Service |
-| Réseau | 25 | 15-20 % | VNet, peering, NSG/ASG, UDR, LB, App Gateway, Bastion, DNS |
-| Monitoring & Maintenance | 16 | 10-15 % | Azure Monitor, alertes, Log Analytics, Backup, ASR |
-| **Pièges d'examen** | 44 | transversal | Les limites et exclusivités que les questions pièges adorent, groupées par thème |
-| Global vs Régional | 3 | transversal | Quels services sont globaux, régionaux, ou entre les deux |
-| Astuces réflexes | 14 | transversal | Mot-clé de l'énoncé → réponse attendue |
+| 🔐 Gérer les identités et la gouvernance Azure | 33 | 20-25 % | Entra ID, RBAC, Policy, locks, tags, licences P1/P2, managed identities |
+| 💾 Implémenter et gérer le stockage | 21 | 15-20 % | SAS, redondances, tiers, Files/File Sync, object replication |
+| 🖥️ Déployer et gérer les ressources de calcul | 27 | 20-25 % | VM, availability sets/zones, disques, ARM/Bicep, conteneurs, App Service |
+| 🌐 Implémenter et gérer les réseaux virtuels | 30 | 15-20 % | VNet, peering, NSG/ASG, UDR, LB, App Gateway, Bastion, DNS, Network Watcher |
+| 🛡️ Surveiller et sauvegarder les ressources Azure | 18 | 10-15 % | Azure Monitor, alertes, Log Analytics, agents, Backup, ASR |
+| 🎯 **Pièges d'examen** | 44 | transversal | Les limites et exclusivités que les questions pièges adorent, groupées par thème |
+| 🌍 Global vs Régional | 3 | transversal | Quels services sont globaux, régionaux, ou entre les deux |
+| ⚡ Astuces réflexes | 14 | transversal | Mot-clé de l'énoncé → réponse attendue |
 
 > ℹ️ Les pièges gardent leur numérotation d'origine (1 → 45, sans n°12) et sont groupés par thème d'examen, avec le thème rappelé sur chaque carte (ex : « Piège 26 · Réseau · … »).
 
