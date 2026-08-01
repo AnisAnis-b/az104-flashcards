@@ -21,6 +21,8 @@ Les questions de l'AZ-104 ne testent pas ta capacité à réciter la doc : elles
 
 Chaque carte « Piège » de ce paquet vient d'une erreur réellement commise en préparation. Réviser ces cartes, c'est faire les erreurs **avant** l'examen plutôt que pendant.
 
+Et la méthode a fait ses preuves : **examen passé et réussi** avec ces cartes ✅
+
 ## Fonctionnalités
 
 - 🃏 **Rappel actif** : une question au recto, la réponse au verso. Tu réponds avant de retourner.
@@ -96,4 +98,4 @@ Code et contenu sous licence [MIT](LICENSE). Projet indépendant, **non affilié
 
 ---
 
-*Fait par [@AnisAnis-b](https://github.com/AnisAnis-b) pendant sa propre préparation de l'AZ-104. Si ces cartes t'aident, une ⭐ fait toujours plaisir.*
+*Fait par [@AnisAnis-b](https://github.com/AnisAnis-b) pour préparer l'AZ-104, certification obtenue ✅. Si ces cartes t'aident, une ⭐ fait toujours plaisir.*
